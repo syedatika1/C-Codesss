@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+class MyClass {
+public:
+    void print() {
+        cout << "No arguments" << endl;
+    }
+
+    void print(int x) {
+        cout << "Integer argument: " << x << endl;
+    }
+
+    void print(double x) {
+        cout << "Double argument: " << x << endl;
+    }
+};
+
+int main() {
+    MyClass obj;
+
+    obj.print();
+    obj.print(10);
+    obj.print(3.14);
+
+    return 0;
+}

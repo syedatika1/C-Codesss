@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double decimalNum;
+    cout << "Enter a decimal number: ";
+    cin >> decimalNum;
+
+    int binaryNum = 0, i = 0;
+    while (decimalNum > 0) {
+        int bit = decimalNum > 0.5 ? 1 : 0;
+        binaryNum += bit * pow(10, i);
+        decimalNum -= bit;
+        decimalNum *= 2;
+        i++;
+    }
+
+    cout << "Binary equivalent: " << binaryNum << endl;
+
+    return 0;
+}

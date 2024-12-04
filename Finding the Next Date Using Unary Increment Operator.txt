@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class Date {
+private:
+    int day, month, year;
+
+public:
+    Date(int d, int m, int y) : day(d), month(m), year(y) {}
+
+    // Overload unary increment operator to find the next date
+    Date& operator++() {
+        // Days in each month
+        int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+        // Check for leap year
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            daysInMonth[1] = 29; // February has 29 days in a leap year
+        }
+
+        day++; // Increment the day
+
+        // Check if day exceeds the number of days in the current month
+        if (day > daysInMonth[month - 1]) {
+            day = 1; // Reset to the first day
+            month++; // Move to the next month
+
+            // Check if month exceeds 12
+            if (month > 12) {
+                month = 1; // Reset to January
+                year++; // Increment the year
+            }
+        }
+
+        return *this; // Return the updated object
+    }
+
+    void display() {
+        cout << day << "/" << month << "/" << year; // Display without "Date:"
+    }
+};
+
+int main() {
+    Date date(28, 2, 2024); // Example: 28th February 2024 (leap year)
+    
+    cout << "Current: ";
+    date.display();
+    cout << endl; // Move to the next line for clarity
+
+    ++date; // Increment to the next date
+    cout << "Next: ";
+    date.display();
+    cout << endl; // Move to the next line for clarity
+
+    return 0;
+}

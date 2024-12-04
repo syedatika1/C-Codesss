@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class ClassB; // Forward declaration
+
+class ClassA {
+private:
+    float numA;
+
+public:
+    ClassA(float a) : numA(a) {}
+
+    friend float findMean(ClassA, ClassB);
+};
+
+class ClassB {
+private:
+    float numB;
+
+public:
+    ClassB(float b) : numB(b) {}
+
+    friend float findMean(ClassA, ClassB);
+};
+
+// Friend function to calculate mean
+float findMean(ClassA a, ClassB b) {
+    return (a.numA + b.numB) / 2;
+}
+
+int main() {
+    ClassA a(10.0);
+    ClassB b(20.0);
+    cout << "Mean: " << findMean(a, b) << endl;
+
+    return 0;
+}

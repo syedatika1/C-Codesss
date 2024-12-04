@@ -1,0 +1,24 @@
+
+#include <iostream>
+
+using namespace std;
+
+struct Student {
+    int rollno;
+    string name;
+    float marks;
+};
+
+int main() {
+    Student s1 = {10, "Alice", 95.5};
+
+    // Pointer to structure
+    Student *ptr = &s1;
+
+    // Accessing members using pointer
+    cout << "Roll No: " << ptr->rollno << endl;
+    cout << "Name: " << ptr->name << endl;
+    cout << "Marks: " << ptr->marks << endl;
+
+    return 0;
+}

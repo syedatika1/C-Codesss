@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+struct Rational {
+    int numerator, denominator;
+};
+
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return gcd(b, a % b);
+    }
+}
+
+Rational simplify(Rational r) {
+    int gcd_value = gcd(r.numerator, r.denominator);
+    r.numerator /= gcd_value;
+    r.denominator /= gcd_value;
+    return r;
+}
+
+int main() {
+    Rational r1;
+
+    cout << "Enter numerator: ";
+    cin >> r1.numerator;
+    cout << "Enter denominator: ";
+    cin >> r1.denominator;
+
+    r1 = simplify(r1);
+
+    cout << "Simplified rational number: " << r1.numerator << "/" << r1.denominator << endl;
+
+    return 0;
+}

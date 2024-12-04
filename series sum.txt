@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath> // Include the cmath header
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+
+    double sum = 0;
+    for (int i = 1; i <= n; i++) {
+        sum += pow(-1, i + 1);
+    }
+
+    cout << "Sum of the series: " << sum << endl;
+
+    return 0;
+}

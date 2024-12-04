@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+struct Address {
+    string street, city, state, country;
+};
+
+struct Student {
+    string name, roll_no;
+    Address address;
+};
+
+int main() {
+    Student s1;
+
+    cout << "Enter student name: ";
+    getline(cin, s1.name);
+
+    cout << "Enter student roll number: ";
+    getline(cin, s1.roll_no);
+
+    cout << "Enter student address:\n";
+    cout << "Street: ";
+    getline(cin, s1.address.street);
+
+    cout << "City: ";
+    getline(cin, s1.address.city);
+
+    cout << "State: ";
+    getline(cin, s1.address.state);
+
+    cout << "Country: ";
+    getline(cin, s1.address.country);
+
+    cout << "\nStudent Information:\n";
+    cout << "Name: " << s1.name << endl;
+    cout << "Roll Number: " << s1.roll_no << endl;
+    cout << "Address:\n";
+    cout << "Street: " << s1.address.street << endl;
+    cout << "City: " << s1.address.city << endl;
+    cout << "State: " << s1.address.state << endl;
+    cout << "Country: " << s1.address.country << endl;
+
+    return 0;
+}

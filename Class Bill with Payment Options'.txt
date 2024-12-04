@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Bill {
+public:
+    virtual void pay() = 0; // Pure virtual function
+};
+
+class Cheque : public Bill {
+public:
+    void pay() override {
+        cout << "Payment made by cheque." << endl;
+    }
+};
+
+class Cash : public Bill {
+public:
+    void pay() override {
+        cout << "Payment made by cash." << endl;
+    }
+};
+
+int main() {
+    Bill* bill1 = new Cheque();
+    Bill* bill2 = new Cash();
+    
+    bill1->pay();
+    bill2->pay();
+    
+    delete bill1;
+    delete bill2;
+
+    return 0;
+}

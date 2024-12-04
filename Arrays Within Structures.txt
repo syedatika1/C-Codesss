@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+struct Student {
+    int rollno;
+    string name;
+    int marks[5];
+};
+
+int main() {
+    Student s1 = {10, "Bob", {85, 92, 78, 90, 88}};
+
+    // Accessing array elements within structure
+    cout << "Marks in Subject 3: " << s1.marks[2] << endl;
+
+    return 0;
+}

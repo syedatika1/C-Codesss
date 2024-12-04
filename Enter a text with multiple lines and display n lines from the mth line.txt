@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<string> lines;
+    string line;
+    int m, n;
+
+    cout << "Enter lines of text (enter 'stop' to finish):\n";
+    while (true) {
+        getline(cin, line);
+        if (line == "stop") {
+            break;
+        }
+        lines.push_back(line);
+    }
+
+    cout << "Enter the starting line number (m): ";
+    cin >> m;
+
+    cout << "Enter the number of lines to display (n): ";
+    cin >> n;
+
+    for (int i = m - 1; i < m + n - 1; i++) {
+        cout << lines[i] << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class Distance {
+private:
+    int meters;
+
+public:
+    Distance(int m) : meters(m) {}
+
+    // Conversion operator to convert Distance to meters
+    operator int() {
+        return meters;
+    }
+};
+
+int main() {
+    Distance d(100);
+    int meters = d; // Implicit conversion
+    cout << "Distance in meters: " << meters << endl;
+
+    return 0;
+}

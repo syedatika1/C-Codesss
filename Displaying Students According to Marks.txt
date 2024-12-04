@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+struct Student {
+    string name;
+    int marks;
+};
+
+bool compare(Student a, Student b) {
+    return a.marks > b.marks;
+}
+
+int main() {
+    Student students[5] = {
+        {"Alice", 85},
+        {"Bob", 92},
+        {"Charlie", 78},
+        {"David", 90},
+        {"Emily", 88}
+    };
+
+    sort(students, students + 5, compare);
+
+    cout << "Students sorted by marks:\n";
+    for (int i = 0; i < 5; i++) {
+        cout << students[i].name << " - " << students[i].marks << endl;
+    }
+
+    return 0;
+}

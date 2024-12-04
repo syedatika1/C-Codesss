@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+class Array {
+private:
+    int* arr;
+    int size;
+
+public:
+    Array(int s) : size(s) {
+        arr = new int[size];
+    }
+
+    void input() {
+        cout << "Enter " << size << " elements: ";
+        for (int i = 0; i < size; i++) {
+            cin >> arr[i];
+        }
+    }
+
+    // Friend function to add two arrays
+    friend Array operator+(Array, Array);
+
+    void display() {
+        for (int i = 0; i < size; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+
+    ~Array() {
+        delete[] arr;
+    }
+};
+
+// Overloaded operator to add two arrays
+Array operator+(Array a1, Array a2) {
+    if (a1.size != a2.size) {
+        cout << "Error: Arrays must be of the same size!" << endl;
+        exit(1);
+    }
+    Array result(a1.size);
+    for (int i = 0; i < a1.size; i++) {
+        result.arr[i] = a1.arr[i] + a2.arr[i];
+    }
+    return result;
+}
+
+int main() {
+    Array arr1(3), arr2(3);
+    
+    arr1.input();
+    arr2.input();
+    
+    Array arr3 = arr1 + arr2; // Adding two arrays
+    cout << "Resultant Array: ";
+    arr3.display();
+
+    return 0;
+}

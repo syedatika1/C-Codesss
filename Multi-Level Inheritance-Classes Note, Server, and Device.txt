@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class Note {
+public:
+    void showNote() {
+        cout << "This is a note." << endl;
+    }
+};
+
+class Server : public Note {
+public:
+    void showServer() {
+        cout << "This is a server." << endl;
+    }
+};
+
+class Device : public Server {
+public:
+    void showDevice() {
+        cout << "This is a device." << endl;
+    }
+};
+
+int main() {
+    Device device;
+    device.showNote();
+    device.showServer();
+    device.showDevice();
+
+    return 0;
+}

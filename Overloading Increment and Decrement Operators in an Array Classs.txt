@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class Array {
+private:
+    int* arr;
+    int size;
+
+public:
+    Array(int s) : size(s) {
+        arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = i + 1; // Initialize array with values 1 to size
+        }
+    }
+
+    ~Array() {
+        delete[] arr;
+    }
+
+    // Overload increment operator
+    Array& operator++() {
+        for (int i = 0; i < size; i++) {
+            arr[i]++;
+        }
+        return *this;
+    }
+
+    // Overload decrement operator
+    Array& operator--() {
+        for (int i = 0; i < size; i++) {
+            arr[i]--;
+        }
+        return *this;
+    }
+
+    void display() {
+        for (int i = 0; i < size; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Array arr(5);
+    arr.display();
+    
+    ++arr;
+    arr.display();
+    
+    --arr;
+    arr.display();
+
+    return 0;
+}

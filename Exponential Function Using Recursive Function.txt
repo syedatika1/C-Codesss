@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+double exp(double x, int y) {
+    if (y == 0) {
+        return 1;
+    } else if (y > 0) {
+        return x * exp(x, y - 1);
+    } else {
+        return 1 / exp(x, -y);
+    }
+}
+
+int main() {
+    double x;
+    int y;
+    cout << "Enter x and y: ";
+    cin >> x >> y;
+
+    double result = exp(x, y);
+    cout << "exp(x, y): " << result << endl;
+
+    return 0;
+}

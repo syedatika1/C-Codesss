@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+template <typename T, typename U>
+auto add(T a, U b) {
+    return a + b;
+}
+
+int main() {
+    int x = 5;
+    double y = 2.5;
+
+    double result = add(x, y);
+    cout << "Sum: " << result << endl;
+
+    return 0;
+}

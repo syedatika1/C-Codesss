@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip> // Include the iomanip header
+
+using namespace std;
+
+int main() {
+    int startDay, daysInMonth;
+    cout << "Enter the start day (1 for Monday, 2 for Tuesday, ...): ";
+    cin >> startDay;
+    cout << "Enter the number of days in the month: ";
+    cin >> daysInMonth;
+
+    cout << "Mon Tue Wed Thu Fri Sat Sun" << endl;
+
+    for (int i = 1; i < startDay; i++) {
+        cout << "    ";
+    }
+
+    for (int i = 1; i <= daysInMonth; i++) {
+        cout << setw(4) << i;
+        if ((i + startDay - 1) % 7 == 0) {
+            cout << endl;
+        }
+    }
+
+    cout << endl;
+
+    return 0;
+}

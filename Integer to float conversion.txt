@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip> // For std::fixed and std::setprecision
+using namespace std;
+
+int main() {
+    int integerNumber;
+
+    // Input an integer from the user
+    cout << "Enter an integer: ";
+    cin >> integerNumber;
+
+    // Convert integer to float
+    float floatingPointNumber = static_cast<float>(integerNumber);
+
+    // Output the floating-point number with one decimal point
+    cout << fixed << setprecision(1); // Set fixed-point notation and one decimal place
+    cout << "The corresponding floating-point number is: " << floatingPointNumber << endl;
+
+    return 0;
+}
